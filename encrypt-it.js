@@ -4,6 +4,9 @@
   // wait for window to load to initialize script
   window.addEventListener("load", init);
 
+  /**
+   * initializes event listeners for the encrypt and reset buttons.
+   */
   function init() {
     console.log("Window loaded!");
     
@@ -12,19 +15,26 @@
     document.getElementById("reset").addEventListener("click", handleReset);
   }
 
-  // handle encryption logic
+  /**
+   * handles the click event for the encrypt-it button.
+   */
   function handleClick() {
     console.log("Button clicked!");
     let text = document.getElementById("input-text").value;
     document.getElementById("result").innerText = shiftCipher(text);
   }
 
-  // clear the input text area
+  /**
+   * handles the click event for the reset button by clearing the textarea.
+   */
   function handleReset() {
     document.getElementById("input-text").value = "";
   }
 
-  // shift characters by 1 (a -> b, z -> a)
+  /**
+   * returns an encrypted version of the given text by shifting 
+   * letters alphabetically ahead by 1.
+   */
   function shiftCipher(text) {
     text = text.toLowerCase();
     let result = "";
@@ -41,4 +51,5 @@
     }
     return result;
   }
+
 })();
